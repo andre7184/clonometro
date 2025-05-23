@@ -1,7 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 import time
-import pygame
+from playsound import playsound
 import threading
 
 class Cronometro:
@@ -64,16 +64,11 @@ class Cronometro:
         horas, minutos = divmod(minutos, 60)
         return f"{horas:02}:{minutos:02}:{segundos:02}"
 
-    
     def tocar_som(self):
         try:
-            pygame.mixer.init()
-            pygame.mixer.music.load("galo.mp3")
-            pygame.mixer.music.play()
-            print("🎵 Som tocado com sucesso! 🎵")
-        except Exception as e:
-            print(f"⚠️ Erro ao tocar o som: {e}")
-
+            playsound("galo.mp3") 
+        except:
+            print("⚠️ Erro ao tocar o som. Verifique o arquivo.")
 
 
 def iniciar_todos():
